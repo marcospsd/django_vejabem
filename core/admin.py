@@ -7,5 +7,6 @@ from core.models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "author", "created", "update")
+    list_display = ("id","title","slug", "author", "created", "update")
     prepopulated_fields = {"slug": ("title",)}
+    list_filter = ['created']
