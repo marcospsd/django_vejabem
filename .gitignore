@@ -1,3 +1,4 @@
 /lib/
 /scripts/
 pyvenv.cfg
+*.pyc
