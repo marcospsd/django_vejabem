@@ -8,7 +8,8 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
-    content = RichTextUploadingField()
+    summary = RichTextUploadingField(null=False)
+    content = RichTextUploadingField(null=False)
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)

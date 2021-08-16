@@ -11,7 +11,7 @@
                <div class="card h-100"><img class="card-img-top w-100">
                 <div class="card-body">
                   <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{post.title}}</h5>
-                    <a class="text-muted fs--1 stretched-link text-decoration-none" href="/posts/{{post.slug}}">{{post.slug}}</a>
+                    <a class="text-muted fs--1 stretched-link text-decoration-none" href="/posts/{{post.slug}}">{{post.summary|safe}}</a>
                 </div>
               </div>
             </div>
