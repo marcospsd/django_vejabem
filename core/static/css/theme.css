@@ -18447,6 +18447,14 @@ ul {
     align: center;
 }
 
+#imgdidi {
+    max-width: 100%;
+    max-height: auto;
+    width: auto;
+    height: auto;
+}
+
+
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/

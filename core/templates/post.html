@@ -7,9 +7,10 @@
         <div class="container">
         <div class="post" id="ultimopost">
               <div class="col mx-auto text-center">
-                {% for post in post_list %}
+                        <p>{{ post.title}}</p>
+                        <p>{{ post.created| date:'d, M Y' }}</p>
                         <p>{{ post.content|safe}}</p>
-                {% endfor %}
+
               </div>
         </div>
         </div>
