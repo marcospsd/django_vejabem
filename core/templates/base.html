@@ -85,8 +85,9 @@
             <div class="dropdown d-none d-lg-block">
               <button class="btn btn-outline-light ms-2" id="dropdownMenuButton1" type="submit" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-search text-800"></i></button>
               <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1" style="top:55px">
-                <form>
-                  <input class="form-control" type="search" placeholder="Procure aqui na pagina" aria-label="Search" />
+                <form method="POST" id="searchform" action="{% url 'searchpost'%}">
+                  {% csrf_token %}
+                  <input class="form-control" type="text" name="search" placeholder="Procure aqui na pagina" aria-label="Search" />
                 </form>
               </ul>
             </div>
