@@ -5,16 +5,20 @@
       <!-- <section> Apresentação do Ultimo post publicado ============================-->
       <section>
         <div class="container">
-        <div class="post" id="ultimopost">
-              <div class="col mx-auto text-center">
-                        <p>{{ post.title}}</p>
-                        <p>{{ post.created| date:'d, M Y' }}</p>
-                        <p>{{ post.content|safe}}</p>
-
+          <div class="row">
+            <h1 class="text-center mb-5"> Veja Bem atrás ...</h1>
+              {% for post in post_list %}
+            <div class="col-md-4 mb-4">
+               <div class="card h-100"><img class="card-img-top w-100">
+                <div class="card-body">
+                  <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{post.title}}</h5>
+                    <a class="text-muted fs--1 stretched-link text-decoration-none" href="/posts/{{post.slug}}">{{post.summary|safe}}</a>
+                </div>
               </div>
+            </div>
+              {% endfor %}
+          </div>
         </div>
-        </div>
-
 
       </section>
       <p></p>

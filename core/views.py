@@ -1,7 +1,6 @@
 from django.views.generic import ListView, DetailView, FormView
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
-import django_filters
 
 # Create your views here.
 from core.models import Post
@@ -25,8 +24,6 @@ def post(request, post_id):
 
 def searchpost(request):
     if request.method == "POST":
-        search = request.POST['search']
-        print(search)
-        post = Post.objects.filter(title__icontains=search)
-        print(post)
+        name_search = str(request.POST['search'])
+        post = Post.objects.filter(title__icontains=name_search)
         return render(request, 'search.html', {'post': post})
