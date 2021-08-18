@@ -18,7 +18,8 @@ class HistoricoListView(ListView):
 
 
 def post(request, post_id):
-    post = Post.objects.get(slug=post_id)
+    post = Post.objects.filter(slug=post_id)
+    print(post)
     return render(request, 'post.html', {'post': post})
 
 
