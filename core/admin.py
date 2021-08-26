@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Post
+from core.models import Post, Youtube
 
 
 # Register your models here.
@@ -7,6 +7,13 @@ from core.models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("id","title","slug", "author", "created", "update")
+    list_display = ("id", "title", "slug", "author", "created", "update")
+    prepopulated_fields = {"slug": ("title",)}
+    list_filter = ['created']
+
+
+@admin.register(Youtube)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "slug", "author", "created", "update")
     prepopulated_fields = {"slug": ("title",)}
     list_filter = ['created']

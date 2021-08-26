@@ -52,7 +52,7 @@
             </div>
             <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
               <ul class="list-unstyled list-inline my-2">
-                <li class="list-inline-item"><a class="text-decoration-none" href="https://www.instagram.com/oticasdinizvitoria/"><i class="fab fa-instagram text-900"> </i></a></li>
+                <li class="list-inline-item"><a class="text-decoration-none" href="https://www.instagram.com/oticasdinizvitoria/" target="_black"><i class="fab fa-instagram text-900"> </i></a></li>
               </ul>
             </div>
             <div class="col-auto">
@@ -96,8 +96,14 @@
       </nav>
       <section class="pt-6 bg-600" id="home">
         <div class="container">
-          <div class="col mx-auto text-center">
-            <img src="{% static 'img/gallery/hero-header.png'%}" id="imgdidi">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static 'img/gallery/hero-header.png'%}" width="470" alt="hero-header" /></div>
+            <div class="col-md-7 col-lg-6">
+              {% for youtube in youtube %}
+                <iframe src="{{youtube.content}}" title="YouTube video player" id="youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              {% endfor %}
+            </div>
+            </div>
           </div>
         </div>
       </section>

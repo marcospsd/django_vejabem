@@ -1,15 +1,27 @@
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, TemplateView
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
 
 # Create your views here.
-from core.models import Post
+from core.models import Post, Youtube
 
 
-class PostListView(ListView):
+class PostListView(TemplateView):
     template_name = 'index.html'
-    model = Post
-    queryset = Post.objects.order_by('-id')[:1]
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context['post'] = Post.objects.order_by('-id')[:1]
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        return context
+
+
+class BaseListView(TemplateView):
+    template_name = 'base.html'
+    def get_context_data(self, **kwargs):
+        context = super(BaseListView, self).get_context_data(**kwargs)
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        return context
 
 
 class HistoricoListView(ListView):
@@ -20,7 +32,7 @@ class HistoricoListView(ListView):
 def post(request, post_id):
     post = Post.objects.filter(slug=post_id)
     print(post)
-    return render(request, 'post.html', {'post': post})
+    return render(request, 'post.html', {'post': post,})
 
 
 def searchpost(request):

@@ -7,8 +7,9 @@
         <div class="container">
         <div class="post" id="ultimopost">
             <h1 class="text-center mb-5"> Veja Bem as últimas notícias...</h1>
+
               <div class="col mx-auto text-center">
-                {% for post in post_list %}
+                {% for post in post %}
                         <p>{{ post.content|safe}}</p>
                 {% endfor %}
               </div>
