@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <!-- ============================================-->
+      <!-- <section> Apresentação do post publicado ============================-->
+      <section>
+        <div class="container">
+          <div class="row">
+            <h1 class="text-center mb-5"> Veja Bem atrás ...</h1>
+              <div class="col mx-auto text-center">
+              {% for post in post_list %}
+                  <p>{{ post.title}}</p>
+                  <p>{{ post.created| date:'d, M Y'}}</p>
+                  <p>{{ post.content|safe}}</p>
+                {% endfor %}
+              </div>
+          </div>
+        </div>
+
+      </section>
+    <P></P>
+{% endblock %}

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'ckeditor',
     'ckeditor_uploader',
-    'gunicorn',
 ]
 
 MIDDLEWARE = [

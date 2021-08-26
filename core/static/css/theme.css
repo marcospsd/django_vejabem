@@ -9173,11 +9173,11 @@ fieldset:disabled .btn {
 }
 
 .pt-6 {
-  padding-top: 4rem !important;
+  padding-top: 1rem !important;
 }
 
 .pt-7 {
-  padding-top: 5rem !important;
+  padding-top: 1rem !important;
 }
 
 .pt-8 {
@@ -18452,12 +18452,17 @@ ul {
     max-height: auto;
     width: auto;
     height: auto;
+    align: center;
 }
 
 #youtube{
-   width: 100%;
-   height: auto;
+  width:560px;
+  height:315px;
+  max-width:100%;
+  max-height: auto;
+  align: center;
 }
+
 
 /*-----------------------------------------------
 |   User Styles
