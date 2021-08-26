@@ -47,7 +47,7 @@ def post(request, post_id):
 def videos(request, video_id):
     post = Youtube.objects.filter(slug=video_id)
     youtube = Youtube.objects.order_by('-id')[:1]
-    return render(request, 'video.html', {'post': post, 'youtube': youtube})
+    return render(request, 'videos.html', {'post': post, 'youtube': youtube})
 
 
 def searchpost(request):
