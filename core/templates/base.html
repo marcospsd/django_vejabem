@@ -76,8 +76,8 @@
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'historico'%}">Historico</a></li>
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Videos</a></li>
-            <!--    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/">Campanhas</a></li>
-            </ul><a class="btn btn-primary order-1 order-lg-0" href="#!">Login</a>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Enquete</a></li>
+             <!--</ul><a class="btn btn-primary order-1 order-lg-0" href="#!">Login</a>
             <form class="d-flex my-3 d-block d-lg-none">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-primary" type="submit">Procurar</button>
@@ -106,6 +106,49 @@
             </div>
           </div>
         </div>
+
+               <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h4 class="modal-title" id="exampleModalLabel">Veja Bem essa Enquete...</h4>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+                {% for enquete in enquete %}
+               <div class="modal-body">
+                 <form method="POST" action="{% url 'index'%}">
+                   {% csrf_token %}
+                 <div class="modal-body" align="center">
+                  <h3>{{enquete.question}}</h3>
+                 </div>
+                <div class="form-check">
+                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option1" value="option1">
+                   <label class="form-check-label" for="option1">{{enquete.option_one}}</label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option2" value="option2">
+                   <label class="form-check-label" for="option2">{{enquete.option_two}}</label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option3" value="option3">
+                   <label class="form-check-label" for="option3">{{enquete.option_three}}</label>
+                 </div>
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option4" value="option4">
+                   <label class="form-check-label" for="option4">{{enquete.option_four}}</label>
+                 </div>
+                  {% endfor %}
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                 <button type="submit" class="btn btn-danger" id="button">Enviar</button>
+               </div>
+             </form>
+             </div>
+             </div>
+           </div>
+         </div>
+
       </section>
       <!-- <section> Final da Segunda NAVBAR ============================-->
       <!-- ============================================-->

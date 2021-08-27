@@ -1,18 +1,42 @@
 from django.views.generic import ListView, DetailView, FormView, TemplateView
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 # Create your views here.
-from core.models import Post, Youtube
+from core.models import Post, Youtube, Enquete
 
 
 class PostListView(TemplateView):
     template_name = 'index.html'
+    fields = ['option_one_count', 'option_two_count', 'option_three_count', 'option_four_count']
+
+    def post(self, form, request):
+        enquete = Enquete.objects.get(pk=(Enquete.objects.order_by('-id')[:1]))
+        if request.method == "POST":
+            selected_option = request.POST['flexRadioDefault']
+            if selected_option == 'option1':
+                enquete.option_one_count += 1
+            elif selected_option == 'option2':
+                enquete.option_two_count += 1
+            elif selected_option == 'option3':
+                enquete.option_three_count += 1
+            elif selected_option == 'option4':
+                enquete.option_four_count += 1
+            enquete.save()
+
+        def form_valid():
+            messages.success(self.request, 'Obrigado pelo seu voto !')
+        return super(PostListView, self).form_valid(messages)
+
+
+
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
         context['post'] = Post.objects.order_by('-id')[:1]
         context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        context['enquete'] = Enquete.objects.order_by('-id')[:1]
         return context
 
 
