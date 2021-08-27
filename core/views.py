@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
 
 # Create your views here.
-from core.models import Post, Youtube
+from core.models import Post, Youtube, Enquete
 
 
 class PostListView(TemplateView):
@@ -13,6 +13,7 @@ class PostListView(TemplateView):
         context = super(PostListView, self).get_context_data(**kwargs)
         context['post'] = Post.objects.order_by('-id')[:1]
         context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        context['enquete'] = Enquete.objects.order_by('-id')[:1]
         return context
 
 
@@ -56,3 +57,19 @@ def searchpost(request):
         post = Post.objects.filter(title__icontains=name_search)
         youtube = Youtube.objects.order_by('-id')[:1]
         return render(request, 'search.html', {'post': post, 'youtube': youtube})
+
+
+def vote(request):
+    enquete = Enquete.objects.get('-id')[:1]
+    if request.method == 'POST':
+        selected_option = request.POST['enquete']
+        if selected_option == 'option1':
+            Enquete.option_one_count *= 1
+        elif selected_option == 'option2':
+            Enquete.option_two_count *= 1
+        elif selected_option == 'option3':
+            Enquete.option_three_count *= 1
+        elif selected_option == 'option4':
+            Enquete.option_four_count *= 1
+        else:
+            return HttpResponse('index.html')

@@ -6310,7 +6310,7 @@ fieldset:disabled .btn {
 }
 
 .modal-backdrop {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1040;
