@@ -32,6 +32,7 @@ class Youtube(models.Model):
 
 
 class Enquete(models.Model):
+    active = models.BooleanField(default=True)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     question = models.TextField()
@@ -39,6 +40,7 @@ class Enquete(models.Model):
     option_two = models.CharField(max_length=255)
     option_three = models.CharField(max_length=255)
     option_four = models.CharField(max_length=255)
+    total_votes = models.IntegerField(default=0)
     option_one_count = models.IntegerField(default=0)
     option_two_count = models.IntegerField(default=0)
     option_three_count = models.IntegerField(default=0)

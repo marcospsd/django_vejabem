@@ -9,28 +9,26 @@ from core.models import Post, Youtube, Enquete
 
 class PostListView(TemplateView):
     template_name = 'index.html'
-    fields = ['option_one_count', 'option_two_count', 'option_three_count', 'option_four_count']
+    fields = ['option_one_count', 'option_two_count', 'option_three_count', 'option_four_count', 'total_votes']
 
-    def post(self, form, request):
+    def post(self, request):
         enquete = Enquete.objects.get(pk=(Enquete.objects.order_by('-id')[:1]))
         if request.method == "POST":
             selected_option = request.POST['flexRadioDefault']
             if selected_option == 'option1':
+                enquete.total_votes += 1
                 enquete.option_one_count += 1
             elif selected_option == 'option2':
+                enquete.total_votes += 1
                 enquete.option_two_count += 1
             elif selected_option == 'option3':
+                enquete.total_votes += 1
                 enquete.option_three_count += 1
             elif selected_option == 'option4':
+                enquete.total_votes += 1
                 enquete.option_four_count += 1
             enquete.save()
-
-        def form_valid():
-            messages.success(self.request, 'Obrigado pelo seu voto !')
-        return super(PostListView, self).form_valid(messages)
-
-
-
+            return HttpResponseRedirect('/')
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)

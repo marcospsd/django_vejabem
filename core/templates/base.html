@@ -122,22 +122,38 @@
                  <div class="modal-body" align="center">
                   <h3>{{enquete.question}}</h3>
                  </div>
-                <div class="form-check">
-                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option1" value="option1">
-                   <label class="form-check-label" for="option1">{{enquete.option_one}}</label>
-                 </div>
-                 <div class="form-check">
-                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option2" value="option2">
-                   <label class="form-check-label" for="option2">{{enquete.option_two}}</label>
-                 </div>
-                 <div class="form-check">
-                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option3" value="option3">
-                   <label class="form-check-label" for="option3">{{enquete.option_three}}</label>
-                 </div>
-                 <div class="form-check">
-                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="option4" value="option4">
-                   <label class="form-check-label" for="option4">{{enquete.option_four}}</label>
-                 </div>
+                   {% if enquete.active == True %}
+                           {% if enquete.option_one != '' %}
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" id="option1" value="option1">
+                           <label class="form-check-label" for="option1">{{enquete.option_one}}</label>
+                         </div>
+                           {% endif %}
+                           {% if enquete.option_two != '' %}
+                         <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" id="option2" value="option2">
+                           <label class="form-check-label" for="option2">{{enquete.option_two}}</label>
+                         </div>
+                           {% endif %}
+                           {% if enquete.option_three != '' %}
+                         <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" id="option3" value="option3">
+                           <label class="form-check-label" for="option3">{{enquete.option_three}}</label>
+                         </div>
+                           {% endif %}
+                           {% if enquete.option_four != '' %}
+                         <div class="form-check">
+                           <input class="form-check-input" type="radio" name="flexRadioDefault" id="option4" value="option4">
+                           <label class="form-check-label" for="option4">{{enquete.option_four}}</label>
+                         </div>
+                           {% endif %}
+                   {% else %}
+                          <h5>Total de votos: {{ enquete.total_votes }}</h5>
+                          <p>{{enquete.option_one}}: {{enquete.option_one_count}}</p>
+                          <p>{{enquete.option_two}}: {{enquete.option_two_count}}</p>
+                          <p>{{enquete.option_three}}: {{enquete.option_three_count}}</p>
+                          <p>{{enquete.option_four}}: {{enquete.option_four_count}}</p>
+                   {% endif %}
                   {% endfor %}
                <div class="modal-footer">
                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
