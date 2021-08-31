@@ -30,6 +30,35 @@
     <!-- ===============================================-->
     <link href="{% static 'css/theme.css'%}" rel="stylesheet" />
 
+    <!---- Grafico ------------------------------------->
+    {% for enquete in enquete %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nome',     'Quantidade'],
+          ['{{enquete.option_one}}', {{enquete.option_one_count}}],
+          ['{{enquete.option_two}}', {{enquete.option_two_count}}],
+          ['{{enquete.option_three}}', {{enquete.option_three_count}}],
+          ['{{enquete.option_four}}', {{enquete.option_four_count}}],
+        ]);
+
+        var options = {
+          title: 'Resultado'
+
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('grafico'));
+
+        chart.draw(data, options);
+      }
+     {% endfor %}
+    </script>
+
   </head>
 
 
@@ -146,18 +175,30 @@
                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="option4" value="option4">
                            <label class="form-check-label" for="option4">{{enquete.option_four}}</label>
                          </div>
+                   <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-danger" id="button">Enviar</button>
                            {% endif %}
                    {% else %}
-                          <h5>Total de votos: {{ enquete.total_votes }}</h5>
+                         <!-- <h5>Total de votos: {{ enquete.total_votes }}</h5>
+                          {% if enquete.option_one != '' %}
                           <p>{{enquete.option_one}}: {{enquete.option_one_count}}</p>
+                          {% endif %}
+                          {% if enquete.option_two != '' %}
                           <p>{{enquete.option_two}}: {{enquete.option_two_count}}</p>
+                          {% endif %}
+                          {% if enquete.option_three != '' %}
                           <p>{{enquete.option_three}}: {{enquete.option_three_count}}</p>
+                          {% endif %}
+                          {% if enquete.option_four != '' %}
                           <p>{{enquete.option_four}}: {{enquete.option_four_count}}</p>
+                          {% endif %} -->
+                          <div id="grafico" name="grafico"></div>
+                          <h5>Total de votos: {{ enquete.total_votes }}</h5>
+                   <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
                    {% endif %}
                   {% endfor %}
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
-                 <button type="submit" class="btn btn-danger" id="button">Enviar</button>
                </div>
              </form>
              </div>
@@ -212,6 +253,10 @@
     <script src="{% static 'js/theme.js'%}"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+
+
+
   </body>
 
 </html>
