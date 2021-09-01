@@ -42,6 +42,7 @@ class HistoricoListView(ListView):
     template_name = 'historico.html'
     model = Post
 
+
     def get_context_data(self, **kwargs):
         context = super(HistoricoListView, self).get_context_data(**kwargs)
         context['post'] = Post.objects.all()

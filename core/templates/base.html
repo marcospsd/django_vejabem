@@ -48,7 +48,9 @@
         ]);
 
         var options = {
-          title: 'Resultado'
+          title: 'Resultado',
+          width: 466,
+          height: 250,
 
         };
 
@@ -105,8 +107,10 @@
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'historico'%}">Historico</a></li>
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Videos</a></li>
-              <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Enquete</a></li>
-             <!--</ul><a class="btn btn-primary order-1 order-lg-0" href="#!">Login</a>
+              {% for enquete in enquete %}
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="/">Enquete</a></li>
+              {% endfor %}
+              <!--</ul><a class="btn btn-primary order-1 order-lg-0" href="#!">Login</a>
             <form class="d-flex my-3 d-block d-lg-none">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-primary" type="submit">Procurar</button>
@@ -179,7 +183,7 @@
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-danger" id="button">Enviar</button>
                            {% endif %}
-                   {% else %}
+                   {% elif enquete.active == False %}
                          <!-- <h5>Total de votos: {{ enquete.total_votes }}</h5>
                           {% if enquete.option_one != '' %}
                           <p>{{enquete.option_one}}: {{enquete.option_one_count}}</p>
