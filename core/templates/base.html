@@ -104,9 +104,9 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-              <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
-              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'historico'%}">Historico</a></li>
-            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Videos</a></li>
+              <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Início</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'historico'%}">Histórico</a></li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Vídeos</a></li>
               {% for enquete in enquete %}
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="/">Enquete</a></li>
               {% endfor %}
@@ -133,7 +133,7 @@
             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" id="imgdidi" src="{% static 'img/gallery/hero-header.png'%}" alt="hero-header" /></div><p></p>
             <div class="col-md-7 col-lg-6">
               {% for youtube in youtube %}
-                <iframe src="{{youtube.content}}" title="YouTube video player" id="youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{youtube.content}}" title="YouTube video player" id="youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               {% endfor %}
             </div>
             </div>

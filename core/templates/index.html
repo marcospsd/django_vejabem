@@ -7,12 +7,19 @@
         <div class="container">
         <div class="post" id="ultimopost">
             <h1 class="text-center mb-5">Últimas Notícas</h1>
-
-              <div class="col mx-auto text-center">
+            <div class="container" >
                 {% for post in post %}
-                        <p>{{ post.content|safe}}</p>
-                {% endfor %}
-              </div>
+                     <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin1|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin1|safe}}</p>
+                          </div>
+                     </div>
+                 {% endfor %}
+            </div>
         </div>
         </div>
 
