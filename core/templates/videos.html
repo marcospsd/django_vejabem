@@ -6,10 +6,9 @@
       <section>
         <div class="container">
           <div class="row">
-            <h1 class="text-center mb-5"> Veja Bem atrás ...</h1>
-              <div class="col text-center" >
               {% for post in post %}
-                  <h4>{{ post.title}}</h4>
+            <h1 class="text-center mb-5"> {{ post.title}} </h1>
+              <div class="col text-center" >
                   <h6>{{ post.created| date:'d, M Y'}}</h6>
                   <p></p>
                     <div class="embed-responsive embed-responsive-16by9">

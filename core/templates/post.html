@@ -6,10 +6,9 @@
       <section>
         <div class="container" id="ultimopost">
           <div class="row">
-            <h1 class="text-center mb-5"> Veja Bem atrás ...</h1>
-              <div class="col mx-auto text-center">
               {% for post in post %}
-                  <p>{{ post.title}}</p>
+            <h1 class="text-center mb-5"> {{ post.title}} </h1>
+              <div class="col mx-auto text-center">
                   <p>{{ post.created| date:'d, M Y'}}</p>
                   <p>{{ post.content|safe}}</p>
                 {% endfor %}
