@@ -49,9 +49,6 @@
 
         var options = {
           title: 'Resultado',
-          width: 466,
-          height: 250,
-
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('grafico'));
@@ -86,7 +83,7 @@
                 <li class="list-inline-item"><a class="text-decoration-none" href="https://www.instagram.com/oticasdinizvitoria/" target="_black"><i class="fab fa-instagram text-900"> </i></a></li>
               </ul>
             </div>
-            <div class="col-auto">
+            <div class="col-auto d-none d-lg-block">
               <p class="my-2 fs--1"><i class="fas fa-envelope me-3"></i><a class="text-900" href="mailto:marketing@dinizvitoria.com.br">marketing@dinizvitoria.com.br</a></p>
             </div>
             <img src="{% static 'img/logodnz.jpeg'%}" id="logodnz">
@@ -249,6 +246,7 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+    <script src="{% static 'vendors/jquery/jquery-3.6.0.min.js'%}"></script>
     <script src="{% static 'vendors/popperjs/popper.min.js'%}"></script>
     <script src="{% static 'vendors/bootstrap/bootstrap.min.js'%}"></script>
     <script src="{% static 'vendors/is/is.min.js'%}"></script>
@@ -257,7 +255,8 @@
     <script src="{% static 'js/theme.js'%}"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-
+    {% block js %}
+    {% endblock %}
 
 
 

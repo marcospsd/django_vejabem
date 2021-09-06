@@ -9994,7 +9994,7 @@ fieldset:disabled .btn {
   background-color: #dededf !important;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 250px) {
   .float-sm-start {
     float: left !important;
   }

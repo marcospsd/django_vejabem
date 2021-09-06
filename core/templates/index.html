@@ -26,4 +26,11 @@
 
       </section>
       <p></p>
+
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+          $(window).on('load',function(){
+          $('#exampleModal').modal('show'); });
+    </script>
 {% endblock %}
