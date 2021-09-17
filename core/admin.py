@@ -1,5 +1,6 @@
 from django.contrib import admin
 from core.models import Post, Youtube, Enquete
+from ckeditor.widgets import CKEditorWidget
 
 
 # Register your models here.
