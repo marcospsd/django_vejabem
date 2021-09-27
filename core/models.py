@@ -11,6 +11,12 @@ class Post(models.Model):
     summary = models.CharField(max_length=500)
     col1lin1 = RichTextUploadingField(null=True)
     col2lin1 = RichTextUploadingField(null=True)
+    col1lin2 = RichTextUploadingField(null=True)
+    col2lin2 = RichTextUploadingField(null=True)
+    col1lin3 = RichTextUploadingField(null=True)
+    col2lin3 = RichTextUploadingField(null=True)
+    col1lin4 = RichTextUploadingField(null=True)
+    col2lin4 = RichTextUploadingField(null=True)
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
@@ -35,6 +41,7 @@ class Youtube(models.Model):
 
 class Enquete(models.Model):
     active = models.BooleanField(default=True)
+    pageupdate = models.BooleanField(default=False)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     question = models.TextField()

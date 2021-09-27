@@ -10,6 +10,8 @@ __pycache__
 
 *.cfg
 
+pyvenv.cfg
+
 db.sqlite3
 
 /lib/

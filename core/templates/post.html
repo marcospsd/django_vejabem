@@ -10,7 +10,47 @@
             <h1 class="text-center mb-5"> {{ post.title}} </h1>
               <div class="col mx-auto text-center">
                   <p>{{ post.created| date:'d, M Y'}}</p>
-                  <p>{{ post.content|safe}}</p>
+                    <div class="row" id="content">
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin1|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin1|safe}}</p>
+                          </div>
+                         {% if post.col1lin2 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin2|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin2|safe}}</p>
+                          </div>
+                          {% endif %}
+
+                             {% if post.col1lin3 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin3|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin3|safe}}</p>
+                          </div>
+                          {% endif %}
+
+                             {% if post.col1lin4 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin4|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin4|safe}}</p>
+                          </div>
+                          {% endif %}
+
+                         </div>
                 {% endfor %}
               </div>
           </div>

@@ -30,8 +30,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    #    'adminlte3',
-    #    'adminlte3_theme',
+    'django_adminlte',
+    'django_adminlte_theme',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,12 +125,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Ck Editor.
-CKEDITOR_JQUERY_URL = '/static/vendors/jquery/jquery-3.6.0.min.js'
+CKEDITOR_JQUERY_URL = 'static/vendors/jquery/jquery-3.6.0.min.js'
 CKEDITOR_CONFIGS = {
        'default': {
-           'toolbar': '',
+           'toolbar': 'Custom',
+           'toolbar_Custom': [
+               ['Youtube', 'Image']
+           ],
            'height': 400,
-           'width': 900,
+           'width': 500,
            'removePlugins': 'stylesheetparser',
            'extraPlugins': ['codesnippet','youtube'],
        },

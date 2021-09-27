@@ -10,13 +10,45 @@
             <div class="container" >
                 {% for post in post %}
                      <div class="row" id="content">
-
                           <div class="col-md-6">
                                     <p>{{ post.col1lin1|safe}}</p>
                           </div>
                           <div class="col-md-6">
                                     <p>{{ post.col2lin1|safe}}</p>
                           </div>
+                         {% if post.col1lin2 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin2|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin2|safe}}</p>
+                          </div>
+                          {% endif %}
+
+                             {% if post.col1lin3 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin3|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin3|safe}}</p>
+                          </div>
+                          {% endif %}
+
+                             {% if post.col1lin4 != None %}
+                         <div class="row" id="content">
+
+                          <div class="col-md-6">
+                                    <p>{{ post.col1lin4|safe}}</p>
+                          </div>
+                          <div class="col-md-6">
+                                    <p>{{ post.col2lin4|safe}}</p>
+                          </div>
+                          {% endif %}
+
                      </div>
                  {% endfor %}
             </div>
@@ -29,8 +61,12 @@
 
 {% endblock %}
 {% block js %}
+{% for enquete in enquete %}
+    {% if enquete.pageupdate == True %}
     <script type="text/javascript">
           $(window).on('load',function(){
           $('#exampleModal').modal('show'); });
     </script>
+{% endif %}
+{% endfor %}
 {% endblock %}
