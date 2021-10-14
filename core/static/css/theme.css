@@ -18452,6 +18452,7 @@ ul {
     align: center;
 }
 
+
 #youtube{
   width:560px;
   height:315px;
@@ -18487,12 +18488,15 @@ ul {
  --bs-gutter-y: 0;
 }
 
+.youtube-embed-wrapper iframe {
+  padding: 3em;
+}
+
 @media (min-width: 250px) {
   .d-sm-block {
     display: block !important;
   }
 }
-
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/

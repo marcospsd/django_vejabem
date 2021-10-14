@@ -61,6 +61,16 @@ class YoutubeListView(ListView):
         return context
 
 
+class WebinarListView(ListView):
+    template_name = 'webinar.html'
+    model = Youtube
+
+    def get_context_data(self, **kwargs):
+        context = super(WebinarListView, self).get_context_data(**kwargs)
+        context['post'] = Youtube.objects.all()
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        return context
+
 def post(request, post_id):
     post = Post.objects.filter(slug=post_id)
     youtube = Youtube.objects.order_by('-id')[:1]
