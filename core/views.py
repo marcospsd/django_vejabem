@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Create your views here.
-from core.models import Post, Youtube, Enquete
+from core.models import Post, Youtube, Enquete, Webinar
 
 
 class PostListView(TemplateView):
@@ -42,7 +42,6 @@ class HistoricoListView(ListView):
     template_name = 'historico.html'
     model = Post
 
-
     def get_context_data(self, **kwargs):
         context = super(HistoricoListView, self).get_context_data(**kwargs)
         context['post'] = Post.objects.all()
@@ -63,13 +62,25 @@ class YoutubeListView(ListView):
 
 class WebinarListView(ListView):
     template_name = 'webinar.html'
-    model = Youtube
+    model = Webinar
 
     def get_context_data(self, **kwargs):
         context = super(WebinarListView, self).get_context_data(**kwargs)
-        context['post'] = Youtube.objects.all()
+        context['webinar'] = Webinar.objects.all()
         context['youtube'] = Youtube.objects.order_by('-id')[:1]
         return context
+
+
+class WebinarSlugView(TemplateView):
+    template_name = 'webinar_slug.html'
+    model = Webinar
+
+    def get_context_data(self, **kwargs):
+        context = super(WebinarSlugView, self).get_context_data(**kwargs)
+        context['webinar'] = Webinar.objects.all()
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        return context
+
 
 def post(request, post_id):
     post = Post.objects.filter(slug=post_id)

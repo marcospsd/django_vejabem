@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<section>
+
+      <section>
+        <div class="container">
+          <div class="row">
+              {% for webinar in webinar %}
+            <h1 class="text-center mb-5"> {{ webinar.title}} </h1>
+              <div class="col text-center" >
+                  <h6>{{ webinar.created| date:'d, M Y'}}</h6>
+                  <p></p>
+                    {{ webinar.content|safe}}
+              {% endfor %}
+              </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+{% endblock %}

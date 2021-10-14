@@ -6,17 +6,19 @@
       <section>
         <div class="container">
           <div class="row">
-              {% for post in post %}
-            <h1 class="text-center mb-5"> {{ post.title}} </h1>
-              <div class="col text-center" >
-                  <h6>{{ post.created| date:'d, M Y'}}</h6>
-                  <p></p>
-                    {{ post.content|safe}}
-              {% endfor %}
+            <h1 class="text-center mb-5"> Veja Bem esses Webinar's ...</h1>
+              {% for webinar in webinar %}
+            <div class="col-md-4 mb-4">
+               <div class="card h-100"><img class="card-img-top w-100">
+                <div class="card-body">
+                  <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{webinar.title}}</h5>
+                    <a class="text-muted fs--1 stretched-link text-decoration-none" href="/webinar/{{webinar.slug}}">{{webinar.summary|safe}}</a>
+                </div>
               </div>
+            </div>
+              {% endfor %}
           </div>
         </div>
-
       </section>
     <p></p>
 

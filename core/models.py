@@ -38,6 +38,19 @@ class Youtube(models.Model):
     def __str__(self):
         return self.title
 
+class Webinar(models.Model):
+
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
+    summary = models.CharField(max_length=500, null=False)
+    content = RichTextUploadingField(null=False)
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    created = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
 
 class Enquete(models.Model):
     active = models.BooleanField(default=True)
