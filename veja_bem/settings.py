@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o)7g)0bg3f)$5u-@1r5fdf-%m876qa*&poo#%$hxa&dchdaqgq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['vejabem.dinizvitoria.com.br','10.3.1.5','138.206.226.114','10.3.1.6', '127.0.0.1']
 
 # Application definition
 
@@ -78,12 +78,29 @@ WSGI_APPLICATION = 'veja_bem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#### Banco de Dados modo Desenvolvimento
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+#### Banco de Dados modo Produção
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vejabemdb',
+        'USER': 'root',
+        'PASSWORD': 'T1$3nh4',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

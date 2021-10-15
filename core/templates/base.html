@@ -129,11 +129,10 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" id="imgdidi" src="{% static 'img/gallery/hero-header.png'%}" alt="hero-header" /></div><p></p>
-            <div class="col-md-7 col-lg-6">
+            <div class="col-md-7 col-lg-6 ">
               {% for youtube in youtube %}
                 {{ youtube.content|safe }}
-              <!--  <iframe src="https://www.youtube.com/embed/{{youtube.content}}" title="YouTube video player" id="youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              -->
+              <!--  <iframe src="https://www.youtube.com/embed/{{youtube.content}}" title="YouTube video player" id="youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
               {% endfor %}
             </div>
             </div>
