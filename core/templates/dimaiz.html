@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <!-- ============================================-->
+      <!-- <section> Apresentação do post publicado ============================-->
+      <section>
+        <div class="container" id="ultimopost">
+          <div class="row">
+              {% for post in post %}
+              <div class="col mx-auto text-center">
+                    <p>{{ post.title|safe }}</p>
+                     <p>Atualizado em: {{ post.created| date:'d, M Y'}}</p>
+                    <div class="row" id="content">
+                        <p>{{ post.content1|safe}}</p>
+                          </div>
+                         {% if post.content2 != "" %}
+                        <h2> Benefícios Diniz</h2>
+                          <div class="row" id="content">
+                                <p>{{ post.content2|safe}}</p>
+                          </div>
+                            {% endif %}
+                {% endfor %}
+              </div>
+          </div>
+        </div>
+
+      </section>
+    <P></P>
+{% endblock %}

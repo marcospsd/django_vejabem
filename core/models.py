@@ -73,3 +73,21 @@ class Enquete(models.Model):
 
     def __str__(self):
         return self.title
+
+class Dimaiz(models.Model):
+    title = RichTextUploadingField(null=True, blank=True)
+    summary = models.CharField(max_length=500)
+    content1 = RichTextUploadingField(null=True, blank=True)
+    content2 = RichTextUploadingField(null=True, blank=True)
+    content3 = RichTextUploadingField(null=True, blank=True)
+    content4 = RichTextUploadingField(null=True, blank=True)
+    content5 = RichTextUploadingField(null=True, blank=True)
+    content6 = RichTextUploadingField(null=True, blank=True)
+    content7 = RichTextUploadingField(null=True, blank=True)
+    content8 = RichTextUploadingField(null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    created = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

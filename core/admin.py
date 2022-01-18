@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Post, Youtube, Enquete, Webinar
+from core.models import Post, Youtube, Enquete, Webinar, Dimaiz
 from ckeditor.widgets import CKEditorWidget
 
 
@@ -29,4 +29,9 @@ class PostAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "slug", "author", "created", "update")
     prepopulated_fields = {"slug": ("title",)}
+    list_filter = ['created']
+
+@admin.register(Dimaiz)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "author", "created", "update")
     list_filter = ['created']

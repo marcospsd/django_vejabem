@@ -13,5 +13,6 @@ urlpatterns = [
     path("posts/<post_id>", views.post),
     path("videos/<video_id>", views.videos),
     path("search/", views.searchpost, name='searchpost'),
+    path("dimaiz/", views.DimaizView.as_view(), name='dimaiz'),
 
 ]

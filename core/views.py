@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Create your views here.
-from core.models import Post, Youtube, Enquete, Webinar
+from core.models import Post, Youtube, Enquete, Webinar, Dimaiz
 
 
 class PostListView(TemplateView):
@@ -81,6 +81,16 @@ class WebinarSlugView(TemplateView):
         context['youtube'] = Youtube.objects.order_by('-id')[:1]
         return context
 
+class DimaizView(ListView):
+    template_name = 'dimaiz.html'
+    model = Dimaiz
+
+    def get_context_data(self, **kwargs):
+        context = super(DimaizView, self).get_context_data(**kwargs)
+        context['webinar'] = Webinar.objects.all()
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        context['post'] = Dimaiz.objects.order_by('-id')[:1]
+        return context
 
 def post(request, post_id):
     post = Post.objects.filter(slug=post_id)
