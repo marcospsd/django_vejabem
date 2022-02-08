@@ -147,7 +147,7 @@ CKEDITOR_CONFIGS = {
        'default': {
            'toolbar': 'Custom',
            'toolbar_Custom': [
-               ['Youtube', 'Image']
+               ['Youtube', 'Image', 'Source', 'Link', 'Unlink']
            ],
            'height': 400,
            'width': 500,

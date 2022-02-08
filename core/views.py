@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Create your views here.
-from core.models import Post, Youtube, Enquete, Webinar, Dimaiz, TabelaPrecos, Circular
+from core.models import Post, Youtube, Enquete, Webinar, Dimaiz, TabelaPreco, Circular
 
 
 class PostListView(TemplateView):
@@ -106,13 +106,13 @@ class CircularesListView(ListView):
 
 class TabelaLentesListView(ListView):
     template_name = 'list_tabelalentes.html'
-    model =  TabelaPrecos
+    model =  TabelaPreco
 
     def get_context_data(self, **kwargs):
         context = super(TabelaLentesListView, self).get_context_data(**kwargs)
         context['webinar'] = Webinar.objects.all()
         context['youtube'] = Youtube.objects.order_by('-id')[:1]
-        context['tabelalentes'] = TabelaPrecos.objects.order_by('-id')
+        context['tabelalentes'] = TabelaPreco.objects.order_by('-id')
         return context
 
 
@@ -136,7 +136,7 @@ def searchpost(request):
         return render(request, 'search.html', {'post': post, 'youtube': youtube})
 
 def tabelapreco(request, tabelapreco_id):
-    post = TabelaPrecos.objects.filter(slug=tabelapreco_id)
+    post = TabelaPreco.objects.filter(slug=tabelapreco_id)
     youtube = Youtube.objects.order_by('-id')[:1]
     return render(request, 'tabelalentes_slug.html', {'post': post, 'youtube': youtube})
 
