@@ -93,7 +93,8 @@ class Dimaiz(models.Model):
         return self.title
 
 
-class TabelaPrecos(models.Model):
+class TabelaPreco(models.Model):
+class TabelaPreco(models.Model):
     title = models.CharField(max_length=50,null=True, blank=True)
     slug = models.SlugField(max_length=255)
     content = RichTextUploadingField(null=True, blank=True)
