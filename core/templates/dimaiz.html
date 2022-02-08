@@ -5,25 +5,89 @@
       <!-- <section> Apresentação do post publicado ============================-->
       <section>
         <div class="container" id="ultimopost">
-          <div class="row">
-              {% for post in post %}
-              <div class="col mx-auto text-center">
+            <div class="row">
+                {% for post in post %}
+                <div class="col mx-auto text-center">
                     <p>{{ post.title|safe }}</p>
-                     <p>Atualizado em: {{ post.created| date:'d, M Y'}}</p>
-                    <div class="row" id="content">
-                        <p>{{ post.content1|safe}}</p>
-                          </div>
-                         {% if post.content2 != "" %}
-                        <h2> Benefícios Diniz</h2>
-                          <div class="row" id="content">
-                                <p>{{ post.content2|safe}}</p>
-                          </div>
-                            {% endif %}
-                {% endfor %}
-              </div>
-          </div>
-        </div>
+                    <p>Atualizado em: {{ post.created| date:'d, M Y'}}</p>
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content1|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
 
+                        {% if post.content2 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content2|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+
+                        {% if post.content3 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content3|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+
+                        {% if post.content4 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content4|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+
+                        {% if post.content5 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content5|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+
+                        {% if post.content6 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content6|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+
+                        {% if post.content7 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content7|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+
+                        {% if post.content8 != '' %}
+                        <div class="row" id="content">
+                            <div class="col">
+                                <p>{{ post.content8|safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
       </section>
     <P></P>
 {% endblock %}

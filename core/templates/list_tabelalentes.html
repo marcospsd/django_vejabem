@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <!-- ============================================-->
+      <!-- <section> Apresentação do post publicado ============================-->
+<section>
+    <div class="container" id="ultimopost">
+      <div class="row">
+          {% for tabelalentes in tabelalentes %}
+        <h1 class="text-center mb-5"> {{ tabelalentes.title}} </h1>
+          <div class="col mx-auto text-center">
+              <p>{{ tabelalentes.created_at| date:'d, M Y'}}</p>
+                <div class="row" id="content">
+                      <div class="col">
+                                <p>{{ tabelalentes.content|safe}}</p>
+                      </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

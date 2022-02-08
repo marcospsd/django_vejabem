@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Create your views here.
-from core.models import Post, Youtube, Enquete, Webinar, Dimaiz
+from core.models import Post, Youtube, Enquete, Webinar, Dimaiz, TabelaPrecos, Circular
 
 
 class PostListView(TemplateView):
@@ -92,6 +92,30 @@ class DimaizView(ListView):
         context['post'] = Dimaiz.objects.order_by('-id')[:1]
         return context
 
+class CircularesListView(ListView):
+    template_name = 'list_circulares.html'
+    model = Circular
+
+    def get_context_data(self, **kwargs):
+        context = super(CircularesListView, self).get_context_data(**kwargs)
+        context['webinar'] = Webinar.objects.all()
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        context['circulares'] = Circular.objects.order_by('-id')
+        return context
+
+
+class TabelaLentesListView(ListView):
+    template_name = 'list_tabelalentes.html'
+    model =  TabelaPrecos
+
+    def get_context_data(self, **kwargs):
+        context = super(TabelaLentesListView, self).get_context_data(**kwargs)
+        context['webinar'] = Webinar.objects.all()
+        context['youtube'] = Youtube.objects.order_by('-id')[:1]
+        context['tabelalentes'] = TabelaPrecos.objects.order_by('-id')
+        return context
+
+
 def post(request, post_id):
     post = Post.objects.filter(slug=post_id)
     youtube = Youtube.objects.order_by('-id')[:1]
@@ -110,3 +134,13 @@ def searchpost(request):
         post = Post.objects.filter(title__icontains=name_search)
         youtube = Youtube.objects.order_by('-id')[:1]
         return render(request, 'search.html', {'post': post, 'youtube': youtube})
+
+def tabelapreco(request, tabelapreco_id):
+    post = TabelaPrecos.objects.filter(slug=tabelapreco_id)
+    youtube = Youtube.objects.order_by('-id')[:1]
+    return render(request, 'tabelalentes_slug.html', {'post': post, 'youtube': youtube})
+
+def circular(request, circular_id):
+    post = Circular.objects.filter(slug=circular_id)
+    youtube = Youtube.objects.order_by('-id')[:1]
+    return render(request, 'circular_slug.html', {'post': post, 'youtube': youtube})

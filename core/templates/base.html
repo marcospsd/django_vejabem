@@ -103,12 +103,21 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/">Início</a></li>
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'historico'%}">Histórico</a></li>
-              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'dimaiz'%}">DImaiZ+</a></li>
-            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Vídeos</a></li>
-               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'webinar'%}">Webinar</a></li>
-              {% for enquete in enquete %}
-              <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="/">Enquete</a></li>
-              {% endfor %}
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'videos'%}">Vídeos</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'webinar'%}">Webinar</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mais</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'dimaiz'%}">DImaiZ+</a></li>
+                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'tabela_lentes'%}">Tabela de Preços</a></li>
+                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'circulares'%}">Circulares</a></li>
+                  {% for enquete in enquete %}
+                    {% if enquete is active %}
+                      <li class="nav-item px-2"><a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" href="/">Enquete</a></li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
               <!--</ul><a class="btn btn-primary order-1 order-lg-0" href="#!">Login</a>
             <form class="d-flex my-3 d-block d-lg-none">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

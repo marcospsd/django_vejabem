@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Post, Youtube, Enquete, Webinar, Dimaiz
+from core.models import Post, Youtube, Enquete, Webinar, Dimaiz, Circular, TabelaPrecos
 from ckeditor.widgets import CKEditorWidget
 
 
@@ -35,3 +35,15 @@ class PostAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "author", "created", "update")
     list_filter = ['created']
+
+@admin.register(TabelaPrecos)
+class TabelaPrecosAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "author", "created_at")
+    prepopulated_fields = {"slug": ("title",)}
+    list_filter = ['created_at']
+
+@admin.register(Circular)
+class CircularAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "author", "created_at")
+    prepopulated_fields = {"slug": ("title",)}
+    list_filter = ['created_at']

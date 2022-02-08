@@ -14,5 +14,10 @@ urlpatterns = [
     path("videos/<video_id>", views.videos),
     path("search/", views.searchpost, name='searchpost'),
     path("dimaiz/", views.DimaizView.as_view(), name='dimaiz'),
+    path("circulares/", views.CircularesListView.as_view(), name='circulares'),
+    path("circulares/<circular_id>", views.circular, name='circular_slug'),
+    path("tabela_lentes/", views.TabelaLentesListView.as_view(), name='tabela_lentes'),
+    path("tabela_lentes/<tabelapreco_id>", views.tabelapreco, name='tabela_lentes_slug'),
+
 
 ]
